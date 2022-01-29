@@ -6,11 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 class FragmentOne : Fragment() {
-
     val TAG = "FragmentOne"
+
     override fun onAttach(context: Context) {
         Log.d(TAG,"OnAttach")
         super.onAttach(context)
@@ -68,5 +69,8 @@ class FragmentOne : Fragment() {
     override fun onDetach() {
         Log.d(TAG,"onDetach")
         super.onDetach()
+    }
+    fun showToast(mContext: Context?, message: String?) {
+        Toast.makeText(mContext, TAG, Toast.LENGTH_SHORT).show()
     }
 }

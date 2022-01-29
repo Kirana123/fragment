@@ -13,22 +13,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val Change : Button = findViewById(R.id.btn);
-        FragmentOne()
-       Change.setOnClickListener({
-           if(isFragmentOneLoaded){
-               ShowFragmentTwo()
-           }
-       })
+        val Change: Button = findViewById(R.id.btn);
+        ShowFragmentOne()
+        Change.setOnClickListener({
+            if (isFragmentOneLoaded) {
+                ShowFragmentTwo()
+            }
+        })
     }
-    fun ShowFragmentOne(){
+
+    fun ShowFragmentOne() {
         val transaction = manager.beginTransaction()
-        transaction.replace(R.id.Frame,FragmentOne())
+        transaction.replace(R.id.Frame, FragmentOne())
         transaction.addToBackStack(null)
         transaction.commit()
         isFragmentOneLoaded = true;
     }
-    fun ShowFragmentTwo(){
+
+    fun ShowFragmentTwo() {
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.Frame, FragmentTwo())
         transaction.addToBackStack(null)
